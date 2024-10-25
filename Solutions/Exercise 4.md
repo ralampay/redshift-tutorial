@@ -9,7 +9,7 @@ CREATE TABLE insurance_claims (
     claim_id INT PRIMARY KEY,
     customer_id INT,
     policy_id INT,
-    claim_amount DECIMAL(10, 2),
+    claim_amount DOUBLE PRECISION,
     claim_date DATE,
     claim_status VARCHAR(20) -- e.g., 'Approved', 'Pending', 'Rejected'
 );
@@ -57,7 +57,7 @@ Otherwise, the customer is low-risk (rating = 'Low').
 ```
 
 ```sql
-CREATE OR REPLACE FUNCTION calculate_risk_rating(coverage_amount DECIMAL(10, 2), total_claim_amount DECIMAL(10, 2))
+CREATE OR REPLACE FUNCTION calculate_risk_rating(coverage_amount DOUBLE PRECISION, total_claim_amount DOUBLE PRECISION)
 RETURNS VARCHAR(10)
 IMMUTABLE
 AS $$

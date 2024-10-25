@@ -9,7 +9,7 @@ CREATE TABLE insurance_claims (
     claim_id INT PRIMARY KEY,
     customer_id INT,
     policy_id INT,
-    claim_amount DECIMAL(10, 2),
+    claim_amount DOUBLE PRECISION,
     claim_date DATE,
     claim_status VARCHAR(20) -- e.g., 'Approved', 'Pending', 'Rejected'
 );
