@@ -8,8 +8,8 @@ CREATE TABLE insurance_policies (
     policy_id INT PRIMARY KEY,
     customer_id INT,
     policy_type VARCHAR(20),
-    coverage_amount DECIMAL(10, 2),
-    base_premium DECIMAL(10, 2),
+    coverage_amount DOUBLE PRECISION,
+    base_premium DOUBLE PRECISION,
     age_of_policyholder INT
 );
 ```
