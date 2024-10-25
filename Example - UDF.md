@@ -39,16 +39,13 @@ CREATE OR REPLACE FUNCTION calculate_adjusted_premium(base_premium DECIMAL(10, 2
 RETURNS DECIMAL(10, 2)
 IMMUTABLE
 AS $$
-BEGIN
-    IF age_of_policyholder > 50 THEN
-        RETURN base_premium * 1.20;
-    ELSIF age_of_policyholder <= 30 THEN
-        RETURN base_premium * 0.90;
-    ELSE
-        RETURN base_premium;
-    END IF;
-END;
-$$ LANGUAGE plpgsql;
+if age_of_policyholder > 50:
+    return base_premium * 1.20
+elif age_of_policyholder <= 30:
+    return base_premium * 0.90
+else:
+    return base_premium
+$$ LANGUAGE plpythonu;
 ```
 
 ## Step 4: Use the UDF in a Query
